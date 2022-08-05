@@ -1,41 +1,28 @@
-# jetsonai
-Jetson AI Detect Project
+# Fruit Edibility AI Jetson Nano
+See if I like a certain fruit or not.
 
-Welcome!
-
-This project is a proof of concept for a system desnined to send emails when a person is detected! 
-Google recently made it so 3rd party apps no longer can access gmail through insecure methods such as no ssl encryption. This complicates things greatly and most services are the same way. Thus the email sending function may not work as expected.
-
-Thanks for looking at this project! I hope it exceeds your expecations
+In the project, I've listed the fruits that I despise, the ones I love, and the ones I've never tried. Based on that information, the AI return whether I should eat it or not. Just to be clear, the AI is not very accurate as I have not trained it long enough. In the future I'm planning on training even more and making it return the fruits instead.
 
 # Prerequisites
 
 1. Jetson nano
-2. python installed
+2. Python installed
 3. USB webcam
-4. HDMI cable, keyboard, mouse (optional)
+4. Jetson-inference (Download below)
 
 
-# Limitations
+# Setup
 
-Note that this program will need access to your email account of choice, you must get an app password and or allow less secure apps.
+## Install CMake (For AI models)
 
-# Additional Notes
+```sudo apt-get update,
+sudo apt-get install git cmake```
 
-This project is open source! Please feel free to take as you wish and edit it as needed. hook up other functions or compleatly rewrite it from the ground up! The choice is yours!
+## Install and Clone Jetson Inference
 
-# How to run
-
-The steps for runnings this program are simple!
-
-Install and clone "jetson-inference"
-
-sudo apt-get update,
-sudo apt-get install git cmake
-
-git clone --recursive https://github.com/dusty-nv/jetson-inference,
+```git clone --recursive https://github.com/dusty-nv/jetson-inference,
 cd jetson-inference,
-git submodule update --init
+git submodule update --init```
 
 
 sudo apt-get install libpython3-dev python3-numpy
