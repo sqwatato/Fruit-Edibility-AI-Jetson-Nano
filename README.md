@@ -39,7 +39,7 @@ mkdir build,
 cd build,
 cmake ../
 ```
-Make sure googlenet and resnet-18 is selected(will have a star next to it).
+Make sure googlenet and resnet-18 is selected(will have a star next to it). <br>
 Others models are optional. No need to install Pytorch.
 
 ## More Installations
@@ -61,10 +61,10 @@ Install it manually or with git clone
 
 ### Image Input
 
-Replace `<resnet_dir>` with the path of the directory of the resnet18.onnx file
-Replace `<label_dir>` with the path of the directory of the labels.txt file
-Replace `<img_path>` with the path of the input image
-Replace `<output_name>` with the name of the output image you would like. Ex "fruit.jpg" (.jpg already in command)
+Replace `<resnet_dir>` with the path of the directory of the resnet18.onnx file <br>
+Replace `<label_dir>` with the path of the directory of the labels.txt file <br>
+Replace `<img_path>` with the path of the input image <br>
+Replace `<output_name>` with the name of the output image you would like. Ex "fruit.jpg" (.jpg already in command) <br>
 
 `python3 fruit.py --model=<resnet_dir>/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=<label_dir>/labels.txt <img_path> <output_name>.jpg`
 
@@ -72,10 +72,10 @@ Make sure to run it in the same directory as the fruit.py file
 
 ### Video Input
 
-Replace `<resnet_dir>` with the path of the directory of the resnet18.onnx file
-Replace `<label_dir>` with path of the directory of the labels.txt file
-Replace `<camera>` with the path of the camera. Mine is "/dev/video0"
-Replace `<output_name>` with the name of the output video you would like. Ex "output.mp4" (.mp4 already in command)
+Replace `<resnet_dir>` with the path of the directory of the resnet18.onnx file <br>
+Replace `<label_dir>` with path of the directory of the labels.txt file <br>
+Replace `<camera>` with the path of the camera. Mine is "/dev/video0" <br>
+Replace `<output_name>` with the name of the output video you would like. Ex "output.mp4" (.mp4 already in command) <br>
 
 `python3 fruit.py --model=<resnet_dir>/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=<label_dir>/labels.txt <camera> file://<output_name>.mp4`
 
@@ -83,14 +83,14 @@ Make sure to run it in the same directory as the fruit.py file
 
 ## Viewing output (Assuming using headless mode)
 
-The terminal should show the percentage of what fruit it thinks it is.
-The output image/video will be in the directory that you ran the AI in.
+The terminal should show the percentage of what fruit it thinks it is. <br>
+The output image/video will be in the directory that you ran the AI in. <br>
 To view on your own computer, use the `scp` command
 
-Replace `<nanousername>` with the username of your Jetson Nano
-Replace `<program_dir>` with the path of the directory the image is in
-Replace `<img_name>` with the name of the output file. Ex."fruit.jpg" (.jpg already in command)
-Replace `<hostusername>` with the name of the hosting computer
+Replace `<nanousername>` with the username of your Jetson Nano <br>
+Replace `<program_dir>` with the path of the directory the image is in <br>
+Replace `<img_name>` with the name of the output file. Ex."fruit.jpg" (.jpg already in command) <br>
+Replace `<hostusername>` with the name of the hosting computer <br>
 
 ### Windows
 
