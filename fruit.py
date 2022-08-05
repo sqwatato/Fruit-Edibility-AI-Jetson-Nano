@@ -7,6 +7,15 @@ import jetson.utils
 import argparse
 import sys
 
+"""
+Start of Lists to change
+Replace the list with your own output of fruit sorter
+"""
+like = ['acai', 'apple', 'banana', 'bell pepper', 'black berry', 'cashew', 'coconut', 'corn kernel', 'dragonfruit', 'goji', 'guava', 'jalapeno', 'jasmine', 'kiwi', 'longan', 'lychee', 'mango', 'nectarine', 'olive', 'papaya', 'pea', 'persimmon', 'pineapple', 'raspberry', 'vanilla', 'watermelon', 'yuzu']
+hate = ['apricot', 'avocado', 'black cherry', 'blueberry', 'cherry', 'clementine', 'cocoa bean', 'coffee', 'cranberry', 'date', 'durian', 'eggplant', 'fig', 'grape', 'grapefruit', 'jackfruit', 'kumquat', 'lemon', 'lemon aspen', 'lime', 'macadamia', 'mandarine', 'orange', 'passion fruit', 'peanut', 'pear', 'pomegranate', 'pomelo', 'pumpkin', 'strawberry', 'strawberry guava', 'tomato', 'zucchini']
+new = ['abiu', 'acerola', 'ackee', 'alligator apple', 'ambarella', 'araza', 'bael', 'barbadine', 'barberry', 'bayberry', 'beach plum', 'bearberry', 'betel nut', 'bignay', 'bilimbi', 'bitter gourd', 'black currant', 'black mullberry', 'black sapote', 'bolwarra', 'bottle gourd', 'brazil nut', 'bread fruit', "buddha's hand", 'buffaloberry', 'burdekin plum', 'burmese grape', 'caimito', 'camu camu', 'canistel', 'cantaloupe', 'cape gooseberry', 'carambola', 'cardon', 'cedar bay cherry', 'cempedak', 'ceylon gooseberry', 'che', 'chenet', 'cherimoya', 'chico', 'chokeberry', 'cloudberry', 'cluster fig', 'common buckthorn', 'cornelian cherry', 'crab apple', 'crowberry', 'cupuacu', 'custard apple', 'damson', 'desert fig', 'desert lime', 'dewberry', 'elderberry', 'elephant apple', 'emblic', 'entawak', 'etrog', 'feijoa', 'fibrous satinash', 'finger lime', 'galia melon', 'gandaria', 'genipap', 'gooseberry', 'goumi', 'greengage', 'grenadilla', 'guanabana', 'guarana', 'guavaberry', 'hackberry', 'hard kiwi', 'hawthorn', 'hog plum', 'honeyberry', 'honeysuckle', 'horned melon', 'illawarra plum', 'indian almond', 'indian strawberry', 'ita palm', 'jaboticaba', 'jamaica cherry', 'jambul', 'japanese raisin', 'jatoba', 'jocote', 'jostaberry', 'jujube', 'juniper berry', 'kaffir lime', 'kahikatea', 'kakadu plum', 'keppel', 'kundong', 'kutjera', 'lablab', 'langsat', 'lapsi', 'leucaena', 'lillipilli', 'lingonberry', 'loganberry', 'loquat', 'lucuma', 'lulo', 'mabolo', 'malay apple', 'mamey apple', 'mangosteen', 'manila tamarind', 'marang', 'mayhaw', 'maypop', 'medlar', 'melinjo', 'melon pear', 'midyim', 'miracle fruit', 'mock strawberry', 'monkfruit', 'monstera deliciosa', 'morinda', 'mountain papaya', 'mountain soursop', 'mundu', 'muskmelon', 'myrtle', 'nance', 'nannyberry', 'naranjilla', 'native cherry', 'native gooseberry', 'neem', 'nungu', 'nutmeg', 'oil palm', 'old world sycomore', 'oregon grape', 'otaheite apple', 'pawpaw', 'pequi', 'pigeon plum', 'pigface', 'pili nut', 'pineberry', 'pitomba', 'plumcot', 'podocarpus', 'prikly pear', 'pulasan', 'pupunha', 'purple apple berry', 'quandong', 'quince', 'rambutan', 'rangpur', 'red mulberry', 'redcurrant', 'riberry', 'ridged gourd', 'rimu', 'rose hip', 'rose myrtle', 'rose-leaf bramble', 'saguaro', 'salak', 'salal', 'salmonberry', 'sandpaper fig', 'santol', 'sapodilla', 'saskatoon', 'sea buckthorn', 'sea grape', 'snowberry', 'soncoya', 'sugar apple', 'surinam cherry', 'sycamore fig', 'tamarillo', 'tangelo', 'tanjong', 'taxus baccata', 'tayberry', 'texas persimmon', 'thimbleberry', 'toyon', 'ugli fruit', 'velvet tamarind', 'wax gourd', 'white aspen', 'white currant', 'white mulberry', 'white sapote', 'wineberry', 'wongi', 'yali pear', 'yellow plum', 'zigzag vine']
+
+
 
 #Parse command line
 parser = argparse.ArgumentParser(description="Classify a fruit to determine if it's edible or not.", 
@@ -49,8 +58,16 @@ while True:
 	# find the object description
 	class_desc = net.GetClassDesc(class_id)
 
+	text = ""
+	if class_desc in like:
+		text = "Eat It! You'll love it!"
+	elif class_desc in hate:
+		text = "Don't Eat It! You won't like it!"
+	else:
+		text = "Try it! You've never tried it before!"
 	# overlay the result on the image	
 	font.OverlayText(img, img.width, img.height, "{:05.2f}% {:s}".format(confidence * 100, class_desc), 5, 5, font.White, font.Gray40)
+	font.OverlayText(img, img.width, img.height, "{:05.2f}% {:s}".format(confidence * 100, class_desc), 5, 120, font.White, font.Gray40)
 	
 	# render the image
 	output.Render(img)
