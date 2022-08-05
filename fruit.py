@@ -32,7 +32,6 @@ except:
 
 # load the recognition network
 net = jetson.inference.imageNet(opt.network, sys.argv)
-# net = jetson.inference.imageNet(argv=['--model=models/fruit/resnet18.onnx', '--input_blob=input_0 ','--output_blob=output_0','--labels=data/fruit/labels.txt'])
 
 # create video sources & outputs
 input = jetson.utils.videoSource(opt.input_URI, argv=sys.argv)
